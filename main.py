@@ -10,10 +10,17 @@ def session_demo():
     else:
         sname = request.form["sname"]
         sEmail = request.form["sEmail"]
+        s_cnf_Email = request.form["conf_email"]
+        if  sEmail == s_cnf_Email:
+            session["fname"] = sname
+            session["lname"] = sEmail
+            return  f"session created for {sname} {sEmail}"
+        else:
+            return "Email not matched"
+            
+
         #scontact = request.form["s_Contact_num"]
-        session["fname"] = sname
-        session["lname"] = sEmail
-        return  f"session created for {sname} {sEmail}"
+        
     
     
 
